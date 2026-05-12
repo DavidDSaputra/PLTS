@@ -1,0 +1,194 @@
+@import 'tailwindcss';
+
+@source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
+@source '../../storage/framework/views/*.php';
+@source '../**/*.blade.php';
+@source '../**/*.js';
+
+@theme {
+    --font-sans: 'General Sans', ui-sans-serif, system-ui, sans-serif;
+    --font-display: 'Cabinet Grotesk', 'General Sans', ui-sans-serif, system-ui, sans-serif;
+    
+    --color-primary-50: #eff6ff;
+    --color-primary-100: #dbeafe;
+    --color-primary-200: #bfdbfe;
+    --color-primary-300: #93c5fd;
+    --color-primary-400: #60a5fa;
+    --color-primary-500: #3b82f6;
+    --color-primary-600: #2563eb;
+    --color-primary-700: #1d4ed8;
+    --color-primary-800: #1e40af;
+    --color-primary-900: #0f172a; /* Slate 900 for dark enterprise look */
+    --color-primary-950: #020617; /* Very dark */
+
+    --color-brand-50: #eef1ff;
+    --color-brand-100: #dfe5ff;
+    --color-brand-200: #c6d0ff;
+    --color-brand-300: #9fb0ff;
+    --color-brand-400: #637ef4;
+    --color-brand-500: #12268c;
+    --color-brand-600: #0f2075;
+}
+
+@layer utilities {
+    .text-balance {
+        text-wrap: balance;
+    }
+}
+
+@layer base {
+    [x-cloak] {
+        display: none !important;
+    }
+
+    html {
+        scroll-padding-top: 96px;
+    }
+
+    body {
+        overflow-x: hidden;
+    }
+
+    h1,
+    h2,
+    h3 {
+        font-family: var(--font-display);
+        letter-spacing: 0;
+    }
+
+    img {
+        max-width: 100%;
+    }
+}
+
+@layer components {
+    .section-eyebrow {
+        display: inline-flex;
+        align-items: center;
+        width: fit-content;
+        border-left: 2px solid var(--color-brand-500);
+        padding-left: 0.85rem;
+        font-size: 0.8rem;
+        font-weight: 700;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        color: var(--color-brand-500);
+    }
+
+    .section-eyebrow::before {
+        content: none;
+    }
+
+    .hero-kicker {
+        display: inline-flex;
+        width: fit-content;
+        border-left: 2px solid var(--color-brand-300);
+        padding-left: 1rem;
+        font-size: 0.86rem;
+        font-weight: 700;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        color: #ffffff;
+    }
+
+    .nav-link {
+        position: relative;
+        transition: opacity 180ms ease;
+    }
+
+    .nav-link::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: -0.45rem;
+        height: 2px;
+        transform: scaleX(0);
+        transform-origin: left;
+        border-radius: 9999px;
+        background: var(--color-brand-300);
+        transition: transform 220ms ease;
+    }
+
+    .nav-link:hover::after {
+        transform: scaleX(1);
+    }
+
+    .hero-slide {
+        opacity: 0;
+        transform: scale(1.04);
+        transition: opacity 1200ms ease, transform 5000ms ease;
+    }
+
+    .hero-slide.is-active {
+        opacity: 1;
+        transform: scale(1);
+    }
+
+    .hero-controls {
+        box-shadow: 0 22px 70px rgb(0 0 0 / 0.35);
+    }
+
+    .hero-dot {
+        width: 1rem;
+        height: 1rem;
+        border-radius: 9999px;
+        background: rgb(168 162 158);
+        transition: width 220ms ease, background-color 220ms ease, transform 220ms ease;
+    }
+
+    .hero-dot:hover {
+        transform: scale(1.08);
+        background: rgb(87 83 78);
+    }
+
+    .hero-dot.is-active {
+        width: 2.15rem;
+        background: rgb(28 25 23);
+    }
+
+    .hero-nav-button {
+        display: grid;
+        width: 2.25rem;
+        height: 2.25rem;
+        place-items: center;
+        border-radius: 9999px;
+        color: rgb(28 25 23);
+        transition: background-color 180ms ease, transform 180ms ease;
+    }
+
+    .hero-nav-button:hover {
+        background: var(--color-brand-100);
+        transform: translateY(-1px);
+    }
+
+    .testimonial-marquee {
+        animation: testimonial-marquee 38s linear infinite;
+        width: max-content;
+    }
+
+    .testimonial-marquee:hover {
+        animation-play-state: paused;
+    }
+}
+
+@keyframes testimonial-marquee {
+    from {
+        transform: translateX(0);
+    }
+
+    to {
+        transform: translateX(-50%);
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        scroll-behavior: auto !important;
+        transition-duration: 0.01ms !important;
+    }
+}
