@@ -12,14 +12,14 @@
             [
                 '@type' => 'ListItem',
                 'position' => 2,
-                'name' => 'Tentang KIASOLAR',
+                'name' => 'Tentang KALSOLAR',
                 'item' => url('/about'),
             ],
         ],
     ];
 @endphp
 
-<x-layout.app title="Tentang KIASOLAR | Solusi PLTS dan Energi Surya" description="Kenali KIASOLAR, penyedia solusi PLTS untuk rumah, industri, hybrid, off-grid, on-grid, dan BESS di Indonesia." :canonical="url('/about')" :schema="$aboutSchema">
+<x-layout.app title="Tentang KALSOLAR | Solusi PLTS dan Energi Surya" description="Kenali KALSOLAR, penyedia solusi PLTS untuk rumah, industri, hybrid, off-grid, on-grid, dan BESS di Indonesia." :canonical="url('/about')" :schema="$aboutSchema">
     <section class="relative overflow-hidden bg-stone-950 text-white">
         <div class="absolute inset-0">
             <img src="https://images.unsplash.com/photo-1509391366360-2e959784a276?auto=format&fit=crop&w=1800&q=85" alt="Solar panels under clear sky" class="h-full w-full object-cover">
@@ -30,13 +30,13 @@
         <div class="relative z-10 mx-auto flex min-h-[78vh] max-w-7xl items-end px-4 pb-16 pt-32 sm:px-6 lg:px-8">
             <div class="max-w-4xl" data-aos="fade-up">
                 <p class="hero-kicker mb-5">
-                    Tentang KIASOLAR
+                    Tentang KALSOLAR
                 </p>
                 <h1 class="text-5xl font-semibold leading-[0.96] tracking-normal sm:text-6xl lg:text-8xl">
                     Membangun energi bersih untuk kebutuhan sehari-hari.
                 </h1>
                 <p class="mt-8 max-w-2xl text-lg leading-8 text-white/76">
-                    KIASOLAR membantu rumah, bisnis, dan komunitas memakai sistem PLTS yang praktis untuk menekan biaya listrik dan mengurangi ketergantungan pada energi konvensional.
+                    KALSOLAR membantu rumah, bisnis, dan komunitas memakai sistem PLTS yang praktis untuk menekan biaya listrik dan mengurangi ketergantungan pada energi konvensional.
                 </p>
             </div>
         </div>
@@ -53,7 +53,7 @@
                 </div>
                 <div data-aos="fade-left" class="space-y-6 text-lg leading-8 text-stone-600">
                     <p>
-                        KIASOLAR hadir agar energi terbarukan terasa lebih sederhana dan berguna. Setiap proyek dimulai dari asesmen jelas, rekomendasi yang jujur, dan desain sistem sesuai kebutuhan listrik nyata.
+                        KALSOLAR hadir agar energi terbarukan terasa lebih sederhana dan berguna. Setiap proyek dimulai dari asesmen jelas, rekomendasi yang jujur, dan desain sistem sesuai kebutuhan listrik nyata.
                     </p>
                     <p>
                         Dari atap rumah sampai fasilitas bisnis, tim kami berfokus pada instalasi yang tahan lama, pemantauan transparan, dan layanan jangka panjang agar pelanggan dapat terus berhemat.
@@ -129,7 +129,7 @@
         <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <div class="overflow-hidden rounded-[2rem] bg-[#EEF1FF] p-8 sm:p-12 lg:flex lg:items-center lg:justify-between">
                 <div data-aos="fade-right">
-                    <p class="section-eyebrow">Mulai dengan KIASOLAR</p>
+                    <p class="section-eyebrow">Mulai dengan KALSOLAR</p>
                     <h2 class="mt-4 max-w-3xl text-4xl font-semibold leading-tight text-stone-950 sm:text-5xl">
                         Siap melihat potensi energi surya untuk properti Anda?
                     </h2>

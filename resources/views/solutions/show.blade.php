@@ -6,11 +6,11 @@
             [
                 '@type' => 'Service',
                 '@id' => $url . '#service',
-                'name' => $solution['name'] . ' KIASOLAR',
+                'name' => $solution['name'] . ' KALSOLAR',
                 'description' => $solution['description'],
                 'provider' => [
                     '@type' => 'Organization',
-                    'name' => 'KIASOLAR',
+                    'name' => 'KALSOLAR',
                     'url' => url('/'),
                 ],
                 'areaServed' => 'Indonesia',
@@ -81,7 +81,7 @@
         <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <div class="grid gap-12 lg:grid-cols-[0.9fr_1.1fr] lg:items-start">
                 <div data-aos="fade-right">
-                    <p class="section-eyebrow">Solusi KIASOLAR</p>
+                    <p class="section-eyebrow">Solusi KALSOLAR</p>
                     <h2 class="mt-4 text-4xl font-semibold leading-tight text-stone-950 sm:text-5xl">
                         Untuk siapa {{ strtolower($solution['name']) }} paling cocok?
                     </h2>
@@ -161,11 +161,11 @@
                         Ingin menghitung kebutuhan {{ strtolower($solution['name']) }}?
                     </h2>
                     <p class="mt-5 max-w-2xl leading-8 text-white/70">
-                        Kirim tagihan listrik atau kebutuhan beban, lalu tim KIASOLAR bantu estimasi kapasitas, skenario sistem, dan proyeksi penghematan.
+                        Kirim tagihan listrik atau kebutuhan beban, lalu tim KALSOLAR bantu estimasi kapasitas, skenario sistem, dan proyeksi penghematan.
                     </p>
                 </div>
                 <a href="/#contact" data-aos="fade-left" class="mt-8 inline-flex items-center rounded-full bg-[#12268C] px-7 py-4 text-sm font-bold text-white transition hover:bg-[#0f2075] lg:mt-0">
-                    Hubungi KIASOLAR
+                    Hubungi KALSOLAR
                 </a>
             </div>
         </div>

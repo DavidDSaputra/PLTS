@@ -5,7 +5,7 @@
             [
                 '@type' => 'WebSite',
                 '@id' => url('/') . '#website',
-                'name' => 'KIASOLAR',
+                'name' => 'KALSOLAR',
                 'url' => url('/'),
                 'inLanguage' => 'id-ID',
                 'description' => 'Solusi PLTS untuk solar rumah, solar industri, PLTS hybrid, off-grid, on-grid, dan BESS di Indonesia.',
@@ -13,7 +13,7 @@
             [
                 '@type' => 'ItemList',
                 '@id' => url('/') . '#layanan',
-                'name' => 'Layanan KIASOLAR',
+                'name' => 'Layanan KALSOLAR',
                 'itemListElement' => collect(config('kiasolar.solutions'))->values()->map(fn ($item, $index) => [
                     '@type' => 'ListItem',
                     'position' => $index + 1,
@@ -50,21 +50,27 @@
 
             @foreach ($slides as $index => $slide)
                 <div class="hero-slide absolute inset-0 {{ $index === 0 ? 'is-active' : '' }}" data-title="{{ $slide['title'] }}">
-                    <img src="{{ $slide['image'] }}" alt="{{ $slide['alt'] }}" class="h-full w-full object-cover">
-                    <div class="absolute inset-0 bg-gradient-to-r from-black/82 via-black/48 to-black/10"></div>
+                    <img
+                        src="{{ $slide['image'] }}"
+                        alt="{{ $slide['alt'] }}"
+                        class="h-full w-full object-cover"
+                        loading="{{ $index === 0 ? 'eager' : 'lazy' }}"
+                        fetchpriority="{{ $index === 0 ? 'high' : 'auto' }}"
+                    >
+                    <div class="absolute inset-0 bg-black/58"></div>
                     <div class="absolute inset-x-0 bottom-0 h-52 bg-gradient-to-t from-black/72 to-transparent"></div>
                 </div>
             @endforeach
         </div>
 
-        <div class="relative z-10 mx-auto flex min-h-screen max-w-7xl items-center px-4 pb-28 pt-28 sm:px-6 lg:px-8">
+        <div class="relative z-10 mx-auto flex min-h-screen max-w-7xl items-center justify-center px-4 pb-28 pt-28 sm:px-6 lg:px-8">
             <div class="w-full">
-                <div class="max-w-2xl pt-12">
-                    <h1 class="hero-title max-w-[660px] text-4xl font-semibold leading-[1.02] tracking-normal text-white sm:text-5xl lg:text-[64px]">
+                <div class="mx-auto max-w-3xl pt-12 text-center">
+                    <h1 class="hero-title mx-auto max-w-[820px] text-4xl font-semibold leading-[1.02] tracking-normal text-white sm:text-5xl lg:text-[64px]">
                         Energi surya untuk rumah dan bisnis
                     </h1>
-                    <p class="mt-6 max-w-lg text-base leading-7 text-white/76 sm:text-lg">
-                        KIASOLAR membantu perencanaan solar rumah, solar industri, PLTS hybrid, off-grid, on-grid, dan BESS dengan desain yang jelas sejak awal.
+                    <p class="mx-auto mt-6 max-w-2xl text-base leading-7 text-white/76 sm:text-lg">
+                        KALSOLAR membantu perencanaan solar rumah, solar industri, PLTS hybrid, off-grid, on-grid, dan BESS dengan desain yang jelas sejak awal.
                     </p>
                     <div data-aos="fade-up" data-aos-delay="160" class="mt-9">
                         <a href="#contact" class="group inline-flex items-center gap-6 rounded-full bg-[#12268C] px-7 py-4 text-base font-bold text-white transition hover:bg-white hover:text-[#12268C]">
@@ -75,11 +81,11 @@
                         </a>
                     </div>
 
-                    <div data-aos="fade-up" data-aos-delay="280" class="mt-24 flex flex-wrap items-center gap-5">
+                    <div data-aos="fade-up" data-aos-delay="280" class="mt-24 flex flex-wrap items-center justify-center gap-5">
                         <div class="flex -space-x-4">
-                            <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=120&q=80" alt="Pelanggan KIASOLAR" class="h-14 w-14 rounded-full border-2 border-white object-cover">
-                            <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=120&q=80" alt="Pelanggan KIASOLAR" class="h-14 w-14 rounded-full border-2 border-white object-cover">
-                            <img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&w=120&q=80" alt="Pelanggan KIASOLAR" class="h-14 w-14 rounded-full border-2 border-white object-cover">
+                            <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=120&q=80" alt="Pelanggan KALSOLAR" class="h-14 w-14 rounded-full border-2 border-white object-cover">
+                            <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=120&q=80" alt="Pelanggan KALSOLAR" class="h-14 w-14 rounded-full border-2 border-white object-cover">
+                            <img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&w=120&q=80" alt="Pelanggan KALSOLAR" class="h-14 w-14 rounded-full border-2 border-white object-cover">
                         </div>
                         <p class="text-base font-semibold text-white">
                             <svg class="mr-2 inline h-5 w-5 text-[#12268C]" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
@@ -123,7 +129,7 @@
                         Kami merancang sistem PLTS yang sesuai kebutuhan listrik, kondisi lokasi, dan target penghematan. Fokus kami sederhana: sistem aman, mudah dipantau, dan siap dipakai jangka panjang.
                     </p>
                     <a href="/about" class="mt-8 inline-flex items-center gap-3 rounded-full border border-stone-300 px-5 py-3 text-sm font-bold text-stone-950 transition hover:border-[#12268C] hover:bg-[#EEF1FF]">
-                        Kenali KIASOLAR
+                        Kenali KALSOLAR
                     </a>
                 </div>
 
@@ -312,7 +318,7 @@
         <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <div class="mb-12 flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
                 <div data-aos="fade-right">
-                    <p class="section-eyebrow">Layanan KIASOLAR</p>
+                    <p class="section-eyebrow">Layanan KALSOLAR</p>
                     <h2 class="mt-4 max-w-2xl text-4xl font-semibold leading-tight text-stone-950 sm:text-5xl">
                         Solusi PLTS untuk rumah, bisnis, industri, dan lokasi mandiri.
                     </h2>
@@ -373,7 +379,7 @@
         <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <div class="grid gap-10 lg:grid-cols-[1fr_1fr] lg:items-center">
                 <div data-aos="fade-right">
-                    <p class="section-eyebrow">Mengapa KIASOLAR</p>
+                    <p class="section-eyebrow">Mengapa KALSOLAR</p>
                     <h2 class="mt-4 text-4xl font-semibold leading-tight text-stone-950 sm:text-5xl">
                         Pendampingan PLTS dari analisis kebutuhan sampai sistem berjalan.
                     </h2>
@@ -430,7 +436,7 @@
         <div class="testimonial-marquee flex gap-5">
             @foreach (range(1, 2) as $loopIndex)
                 @foreach ([
-                    ['Andika Pratama', 'Pemilik rumah', 'Tim KIASOLAR menjelaskan kapasitas yang masuk akal, bukan sekadar menawarkan panel paling besar.'],
+                    ['Andika Pratama', 'Pemilik rumah', 'Tim KALSOLAR menjelaskan kapasitas yang masuk akal, bukan sekadar menawarkan panel paling besar.'],
                     ['Maya Santoso', 'Manajer fasilitas', 'Pemantauannya membantu kami melihat produksi energi harian dan mengevaluasi penghematan listrik.'],
                     ['Rizal Hakim', 'Pemilik usaha', 'Proses survei dan instalasinya rapi. Operasional toko tetap berjalan selama pemasangan.'],
                     ['Dewi Lestari', 'Pengelola villa', 'Sistem hybrid membantu menjaga beban penting tetap menyala saat listrik tidak stabil.'],
@@ -488,11 +494,11 @@
                             Siap menghitung kebutuhan PLTS untuk lokasi Anda?
                         </h2>
                         <p class="mt-6 leading-8 text-white/70">
-                            Ceritakan kebutuhan listrik, jenis bangunan, dan target penghematan. Tim KIASOLAR akan membantu estimasi sistem yang paling sesuai.
+                            Ceritakan kebutuhan listrik, jenis bangunan, dan target penghematan. Tim KALSOLAR akan membantu estimasi sistem yang paling sesuai.
                         </p>
                         <div class="mt-10 space-y-4 text-white/80">
                             <p>(888) 456 7890</p>
-                            <p>halo@kiasolar.id</p>
+                            <p>halo@kalsolar.id</p>
                             <p>Jakarta, Indonesia</p>
                         </div>
                     </div>
