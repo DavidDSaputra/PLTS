@@ -5,12 +5,12 @@ return [
         'solar-rumah' => [
             'name' => 'Solar Rumah',
             'label' => 'Solar Rumah',
-            'title' => 'Solar Rumah untuk Hunian | KALSOLAR',
-            'description' => 'Solusi panel surya rumah dari KALSOLAR untuk menghemat tagihan listrik, meningkatkan nilai properti, dan memantau produksi energi harian.',
+            'title' => 'Solar Rumah untuk Hunian | Luma Daya',
+            'description' => 'Solusi panel surya rumah dari Luma Daya untuk menghemat tagihan listrik, meningkatkan nilai properti, dan memantau produksi energi harian.',
             'hero_image' => 'https://images.unsplash.com/photo-1508514177221-188b1cf16e9d?auto=format&fit=crop&w=1800&q=85',
             'kicker' => 'PLTS atap rumah',
             'headline' => 'Solar rumah yang rapi, hemat, dan mudah dipantau.',
-            'intro' => 'KALSOLAR merancang sistem panel surya rumah sesuai pola pemakaian listrik, kondisi atap, kapasitas daya PLN, dan target penghematan keluarga.',
+            'intro' => 'Luma Daya merancang sistem panel surya rumah sesuai pola pemakaian listrik, kondisi atap, kapasitas daya PLN, dan target penghematan keluarga.',
             'audience' => 'Pemilik rumah, cluster perumahan, villa, dan rumah usaha yang ingin menurunkan biaya listrik bulanan.',
             'benefits' => [
                 'Mengurangi tagihan listrik siang hari',
@@ -33,7 +33,7 @@ return [
         'solar-industri' => [
             'name' => 'Solar Industri',
             'label' => 'Solar Industri',
-            'title' => 'Solar Industri untuk Pabrik dan Gudang | KALSOLAR',
+            'title' => 'Solar Industri untuk Pabrik dan Gudang | Luma Daya',
             'description' => 'PLTS industri untuk pabrik, gudang, cold storage, dan fasilitas komersial yang ingin menurunkan biaya energi dan emisi operasional.',
             'hero_image' => 'https://images.unsplash.com/photo-1497440001374-f26997328c1b?auto=format&fit=crop&w=1800&q=85',
             'kicker' => 'PLTS komersial dan industri',
@@ -61,7 +61,7 @@ return [
         'plts-hybrid' => [
             'name' => 'PLTS Hybrid',
             'label' => 'PLTS Hybrid',
-            'title' => 'PLTS Hybrid dengan Baterai dan PLN | KALSOLAR',
+            'title' => 'PLTS Hybrid dengan Baterai dan PLN | Luma Daya',
             'description' => 'Sistem PLTS hybrid yang menggabungkan panel surya, baterai, PLN, dan genset untuk menjaga pasokan listrik lebih stabil.',
             'hero_image' => 'https://images.unsplash.com/photo-1621905252507-b35492cc74b4?auto=format&fit=crop&w=1800&q=85',
             'kicker' => 'Surya, baterai, PLN, genset',
@@ -89,7 +89,7 @@ return [
         'off-grid' => [
             'name' => 'Off-Grid',
             'label' => 'Off-Grid',
-            'title' => 'PLTS Off-Grid untuk Lokasi Tanpa PLN | KALSOLAR',
+            'title' => 'PLTS Off-Grid untuk Lokasi Tanpa PLN | Luma Daya',
             'description' => 'PLTS off-grid mandiri untuk lokasi terpencil, kebun, tambak, BTS, pos operasional, dan bangunan yang belum terjangkau jaringan PLN.',
             'hero_image' => 'https://images.unsplash.com/photo-1466611653911-95081537e5b7?auto=format&fit=crop&w=1800&q=85',
             'kicker' => 'Energi mandiri tanpa jaringan PLN',
@@ -117,7 +117,7 @@ return [
         'on-grid' => [
             'name' => 'On-Grid',
             'label' => 'On-Grid',
-            'title' => 'PLTS On-Grid Terhubung PLN | KALSOLAR',
+            'title' => 'PLTS On-Grid Terhubung PLN | Luma Daya',
             'description' => 'Sistem PLTS on-grid untuk rumah dan bisnis yang ingin menghemat pemakaian listrik siang hari dengan panel surya terhubung jaringan PLN.',
             'hero_image' => 'https://images.unsplash.com/photo-1559302504-64aae6ca6b6d?auto=format&fit=crop&w=1800&q=85',
             'kicker' => 'Panel surya terhubung PLN',
@@ -145,7 +145,7 @@ return [
         'bess' => [
             'name' => 'BESS',
             'label' => 'BESS',
-            'title' => 'BESS Sistem Penyimpanan Energi Baterai | KALSOLAR',
+            'title' => 'BESS Sistem Penyimpanan Energi Baterai | Luma Daya',
             'description' => 'Solusi BESS untuk penyimpanan energi, pengurangan beban puncak, cadangan daya, integrasi PLTS, dan stabilitas operasional fasilitas komersial atau industri.',
             'hero_image' => 'https://images.unsplash.com/photo-1621905252507-b35492cc74b4?auto=format&fit=crop&w=1800&q=85',
             'kicker' => 'Sistem penyimpanan energi baterai',

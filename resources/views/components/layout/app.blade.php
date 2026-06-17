@@ -1,22 +1,34 @@
 @props(['title' => null, 'description' => null, 'canonical' => null, 'schema' => null])
 
+@php
+    $brandName = config('app.name', 'Luma Daya');
+    $logoUrl = asset('assets/images/logo_landscape.svg');
+    $defaultDescription = 'Luma Daya menyediakan solusi PLTS, solar rumah, solar industri, PLTS hybrid, off-grid, on-grid, dan BESS di Indonesia.';
+@endphp
+
 <!DOCTYPE html>
-<html lang="id" class="scroll-smooth" style="background-color:#0c0a09;">
+<html lang="id" class="scroll-smooth" style="background-color:#ffffff;">
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="{{ $description ?? 'KALSOLAR menyediakan solusi PLTS, solar rumah, solar industri, PLTS hybrid, off-grid, on-grid, dan BESS di Indonesia.' }}">
-    <title>{{ $title ?? 'KALSOLAR | Solusi PLTS dan Energi Surya' }}</title>
+    <meta name="description" content="{{ $description ?? $defaultDescription }}">
+    <title>{{ $title ?? $brandName . ' | Smart Energy Solutions' }}</title>
     <link rel="canonical" href="{{ $canonical ?? url()->current() }}">
 
     <!-- Open Graph & Twitter Meta -->
-    <meta property="og:title" content="{{ $title ?? 'KALSOLAR | Solusi PLTS dan Energi Surya' }}">
-    <meta property="og:description" content="{{ $description ?? 'Solusi PLTS, solar rumah, solar industri, hybrid, off-grid, on-grid, dan BESS di Indonesia.' }}">
+    <meta property="og:title" content="{{ $title ?? $brandName . ' | Smart Energy Solutions' }}">
+    <meta property="og:description" content="{{ $description ?? $defaultDescription }}">
     <meta property="og:type" content="website">
     <meta property="og:url" content="{{ $canonical ?? url()->current() }}">
-    <meta property="og:site_name" content="KALSOLAR">
+    <meta property="og:site_name" content="{{ $brandName }}">
     <meta name="robots" content="index, follow, max-image-preview:large">
     <meta name="twitter:card" content="summary_large_image">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="/favicon-32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="/favicon-64.png" sizes="64x64">
+    <link rel="apple-touch-icon" href="/favicon-180.png">
+    <link rel="icon" type="image/png" href="/favicon-192.png" sizes="192x192">
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://api.fontshare.com">
@@ -33,10 +45,10 @@
     {
       "{{ '@' }}context": "https://schema.org",
       "{{ '@' }}type": "Organization",
-      "name": "KALSOLAR",
+      "name": "{{ $brandName }}",
       "url": "{{ url('/') }}",
-      "logo": "{{ url('/logo.png') }}",
-      "description": "Solusi PLTS, solar rumah, solar industri, PLTS hybrid, off-grid, on-grid, dan BESS di Indonesia"
+      "logo": "{{ $logoUrl }}",
+      "description": "{{ $defaultDescription }}"
     }
     </script>
 
@@ -48,7 +60,7 @@
 
     @stack('styles')
 </head>
-<body class="font-sans antialiased text-stone-950 bg-stone-950 selection:bg-[#12268C] selection:text-white" style="background-color:#0c0a09;">
+<body class="bg-white font-sans antialiased text-stone-950 selection:bg-[#0F4FB8] selection:text-white" style="background-color:#ffffff;">
     
     <x-navbar />
 

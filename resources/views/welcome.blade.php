@@ -5,7 +5,7 @@
             [
                 '@type' => 'WebSite',
                 '@id' => url('/') . '#website',
-                'name' => 'KALSOLAR',
+                'name' => 'Luma Daya',
                 'url' => url('/'),
                 'inLanguage' => 'id-ID',
                 'description' => 'Solusi PLTS untuk solar rumah, solar industri, PLTS hybrid, off-grid, on-grid, dan BESS di Indonesia.',
@@ -13,7 +13,7 @@
             [
                 '@type' => 'ItemList',
                 '@id' => url('/') . '#layanan',
-                'name' => 'Layanan KALSOLAR',
+                'name' => 'Layanan Luma Daya',
                 'itemListElement' => collect(config('kiasolar.solutions'))->values()->map(fn ($item, $index) => [
                     '@type' => 'ListItem',
                     'position' => $index + 1,
@@ -70,10 +70,10 @@
                         Energi surya untuk rumah dan bisnis
                     </h1>
                     <p class="mx-auto mt-6 max-w-2xl text-base leading-7 text-white/76 sm:text-lg">
-                        KALSOLAR membantu perencanaan solar rumah, solar industri, PLTS hybrid, off-grid, on-grid, dan BESS dengan desain yang jelas sejak awal.
+                        Luma Daya membantu perencanaan solar rumah, solar industri, PLTS hybrid, off-grid, on-grid, dan BESS dengan desain yang jelas sejak awal.
                     </p>
                     <div data-aos="fade-up" data-aos-delay="160" class="mt-9">
-                        <a href="#contact" class="group inline-flex items-center gap-6 rounded-full bg-[#12268C] px-7 py-4 text-base font-bold text-white transition hover:bg-white hover:text-[#12268C]">
+                        <a href="#contact" class="group inline-flex items-center gap-6 rounded-full bg-[#0F4FB8] px-7 py-4 text-base font-bold text-white transition hover:bg-white hover:text-[#0F4FB8]">
                             Konsultasi gratis
                             <svg class="h-5 w-5 transition group-hover:translate-x-1" viewBox="0 0 24 24" fill="none" aria-hidden="true">
                                 <path d="M4 12H19M13 6L19 12L13 18" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" />
@@ -83,12 +83,12 @@
 
                     <div data-aos="fade-up" data-aos-delay="280" class="mt-24 flex flex-wrap items-center justify-center gap-5">
                         <div class="flex -space-x-4">
-                            <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=120&q=80" alt="Pelanggan KALSOLAR" class="h-14 w-14 rounded-full border-2 border-white object-cover">
-                            <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=120&q=80" alt="Pelanggan KALSOLAR" class="h-14 w-14 rounded-full border-2 border-white object-cover">
-                            <img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&w=120&q=80" alt="Pelanggan KALSOLAR" class="h-14 w-14 rounded-full border-2 border-white object-cover">
+                            <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=120&q=80" alt="Pelanggan Luma Daya" class="h-14 w-14 rounded-full border-2 border-white object-cover">
+                            <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=120&q=80" alt="Pelanggan Luma Daya" class="h-14 w-14 rounded-full border-2 border-white object-cover">
+                            <img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&w=120&q=80" alt="Pelanggan Luma Daya" class="h-14 w-14 rounded-full border-2 border-white object-cover">
                         </div>
                         <p class="text-base font-semibold text-white">
-                            <svg class="mr-2 inline h-5 w-5 text-[#12268C]" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                            <svg class="mr-2 inline h-5 w-5 text-[#46B13F]" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
                                 <path d="M10 1.7L12.4 7L18 7.6L13.8 11.5L15 17.1L10 14.2L5 17.1L6.2 11.5L2 7.6L7.6 7L10 1.7Z" />
                             </svg>
                             5.0 dari 500+ ulasan pelanggan
@@ -128,8 +128,8 @@
                     <p class="mt-6 text-lg leading-8 text-stone-600">
                         Kami merancang sistem PLTS yang sesuai kebutuhan listrik, kondisi lokasi, dan target penghematan. Fokus kami sederhana: sistem aman, mudah dipantau, dan siap dipakai jangka panjang.
                     </p>
-                    <a href="/about" class="mt-8 inline-flex items-center gap-3 rounded-full border border-stone-300 px-5 py-3 text-sm font-bold text-stone-950 transition hover:border-[#12268C] hover:bg-[#EEF1FF]">
-                        Kenali KALSOLAR
+                    <a href="/about" class="mt-8 inline-flex items-center gap-3 rounded-full border border-stone-300 px-5 py-3 text-sm font-bold text-stone-950 transition hover:border-[#0F4FB8] hover:bg-[#EEF8FF]">
+                        Kenali Luma Daya
                     </a>
                 </div>
 
@@ -151,7 +151,7 @@
         </div>
     </section>
 
-    <section id="kalkulator-solar" class="bg-stone-100 py-20 sm:py-28">
+    <section id="kalkulator-solar" class="bg-[#F7FBF9] py-20 sm:py-28">
         <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <div class="mb-12 max-w-3xl" data-aos="fade-up">
                 <p class="section-eyebrow">Kalkulator solar</p>
@@ -193,23 +193,23 @@
                     <div class="mt-7 grid gap-5 sm:grid-cols-2">
                         <label class="grid gap-2">
                             <span class="text-sm font-semibold text-stone-800">Pemakaian listrik per bulan (kWh)</span>
-                            <input x-model.number="monthlyKwh" type="number" min="0" class="rounded-xl border border-stone-300 bg-white px-4 py-3 text-stone-950 outline-none focus:border-[#12268C]">
+                            <input x-model.number="monthlyKwh" type="number" min="0" class="rounded-xl border border-stone-300 bg-white px-4 py-3 text-stone-950 outline-none focus:border-[#0F4FB8]">
                         </label>
                         <label class="grid gap-2">
                             <span class="text-sm font-semibold text-stone-800">Tarif listrik (Rp/kWh)</span>
-                            <input x-model.number="tariff" type="number" min="0" class="rounded-xl border border-stone-300 bg-white px-4 py-3 text-stone-950 outline-none focus:border-[#12268C]">
+                            <input x-model.number="tariff" type="number" min="0" class="rounded-xl border border-stone-300 bg-white px-4 py-3 text-stone-950 outline-none focus:border-[#0F4FB8]">
                         </label>
                         <label class="grid gap-2">
                             <span class="text-sm font-semibold text-stone-800">PSH rata-rata (jam/hari)</span>
-                            <input x-model.number="psh" type="number" min="0" step="0.1" class="rounded-xl border border-stone-300 bg-white px-4 py-3 text-stone-950 outline-none focus:border-[#12268C]">
+                            <input x-model.number="psh" type="number" min="0" step="0.1" class="rounded-xl border border-stone-300 bg-white px-4 py-3 text-stone-950 outline-none focus:border-[#0F4FB8]">
                         </label>
                         <label class="grid gap-2">
                             <span class="text-sm font-semibold text-stone-800">Performance ratio (0-1)</span>
-                            <input x-model.number="pr" type="number" min="0" max="1" step="0.01" class="rounded-xl border border-stone-300 bg-white px-4 py-3 text-stone-950 outline-none focus:border-[#12268C]">
+                            <input x-model.number="pr" type="number" min="0" max="1" step="0.01" class="rounded-xl border border-stone-300 bg-white px-4 py-3 text-stone-950 outline-none focus:border-[#0F4FB8]">
                         </label>
                         <label class="grid gap-2 sm:col-span-2">
                             <span class="text-sm font-semibold text-stone-800">Daya panel per unit (Wp)</span>
-                            <input x-model.number="panelWp" type="number" min="1" class="rounded-xl border border-stone-300 bg-white px-4 py-3 text-stone-950 outline-none focus:border-[#12268C]">
+                            <input x-model.number="panelWp" type="number" min="1" class="rounded-xl border border-stone-300 bg-white px-4 py-3 text-stone-950 outline-none focus:border-[#0F4FB8]">
                         </label>
                     </div>
                 </article>
@@ -235,7 +235,7 @@
                             <p class="text-sm text-white/65">Produksi energi bulanan</p>
                             <p class="mt-1 text-2xl font-bold"><span x-text="fmt(monthlyProd, 0)"></span> kWh/bulan</p>
                         </div>
-                        <div class="rounded-xl bg-[#12268C] p-5 text-white">
+                        <div class="rounded-xl bg-[#0F4FB8] p-5 text-white">
                             <p class="text-sm font-semibold">Potensi penghematan bulanan</p>
                             <p class="mt-1 text-2xl font-black">Rp <span x-text="fmt(monthlySavingRupiah, 0)"></span></p>
                         </div>
@@ -249,7 +249,7 @@
         </div>
     </section>
 
-    <section id="innovation" class="bg-[#F3F5FF] py-20 sm:py-28">
+    <section id="innovation" class="bg-[#F4FBF8] py-20 sm:py-28">
         <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <div class="grid gap-10 lg:grid-cols-[1fr_1.2fr] lg:items-end">
                 <div data-aos="fade-up">
@@ -264,7 +264,7 @@
                         ['Pemantauan performa sistem', 'Produksi energi, konsumsi, dan kondisi sistem dapat dipantau agar performa tetap terjaga.'],
                     ] as $item)
                         <div data-aos="fade-up" class="rounded-[1.5rem] bg-white p-7 shadow-sm ring-1 ring-black/5 transition hover:-translate-y-1 hover:shadow-xl">
-                            <div class="mb-8 h-1.5 w-14 rounded-full bg-[#12268C]"></div>
+                            <div class="mb-8 h-1.5 w-14 rounded-full bg-[#46B13F]"></div>
                             <h3 class="text-xl font-bold text-stone-950">{{ $item[0] }}</h3>
                             <p class="mt-4 leading-7 text-stone-600">{{ $item[1] }}</p>
                         </div>
@@ -274,26 +274,26 @@
         </div>
     </section>
 
-    <section id="impact" class="overflow-hidden bg-stone-950 py-20 text-white sm:py-28">
+    <section id="impact" class="overflow-hidden bg-white py-20 text-stone-950 sm:py-28">
         <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <div class="grid gap-12 lg:grid-cols-[1.1fr_0.9fr] lg:items-center">
                 <div data-aos="fade-right" class="relative min-h-[500px]">
                     <img src="https://images.unsplash.com/photo-1605980776566-0486c3ac7617?auto=format&fit=crop&w=1000&q=85" alt="Solar technician working" class="h-[500px] w-full rounded-[2rem] object-cover">
-                    <div class="absolute inset-x-8 bottom-8 grid grid-cols-3 overflow-hidden rounded-[1.5rem] bg-stone-950 text-center">
+                    <div class="absolute inset-x-8 bottom-8 grid grid-cols-3 overflow-hidden rounded-[1.5rem] bg-white/95 text-center text-stone-950 shadow-xl ring-1 ring-black/5 backdrop-blur">
                         @foreach ([['30%', 'Rata-rata hemat'], ['98%', 'Rasio performa'], ['2.500+', 'Instalasi']] as $stat)
-                            <div class="border-r border-white/10 p-4 last:border-r-0">
+                            <div class="border-r border-stone-200 p-4 last:border-r-0">
                                 <div class="text-2xl font-bold">{{ $stat[0] }}</div>
-                                <div class="mt-1 text-xs text-white/65">{{ $stat[1] }}</div>
+                                <div class="mt-1 text-xs text-stone-500">{{ $stat[1] }}</div>
                             </div>
                         @endforeach
                     </div>
                 </div>
                 <div data-aos="fade-left">
-                    <p class="section-eyebrow text-[#12268C]">Dampak energi surya</p>
+                    <p class="section-eyebrow">Dampak energi surya</p>
                     <h2 class="mt-4 text-4xl font-semibold leading-tight sm:text-5xl">
                         Angka yang membantu keputusan investasi PLTS lebih jelas.
                     </h2>
-                    <p class="mt-6 text-lg leading-8 text-white/70">
+                    <p class="mt-6 text-lg leading-8 text-stone-600">
                         Setiap proyek kami mulai dari estimasi produksi, pola beban, dan potensi penghematan sehingga pemilik rumah dan bisnis memahami manfaatnya sejak awal.
                     </p>
                     <div class="mt-8 flex flex-wrap items-center gap-4">
@@ -304,10 +304,10 @@
                                 'https://images.unsplash.com/photo-1527980965255-d3b416303d12?auto=format&fit=crop&w=120&q=80',
                                 'https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&w=120&q=80',
                             ] as $avatar)
-                                <img src="{{ $avatar }}" alt="Partner portrait" class="h-12 w-12 rounded-full border-2 border-stone-950 object-cover">
+                                <img src="{{ $avatar }}" alt="Partner portrait" class="h-12 w-12 rounded-full border-2 border-white object-cover">
                             @endforeach
                         </div>
-                        <span class="text-sm font-semibold text-white/80">Mitra teknis dan pemasok untuk mendukung implementasi PLTS di Indonesia</span>
+                        <span class="text-sm font-semibold text-stone-600">Mitra teknis dan pemasok untuk mendukung implementasi PLTS di Indonesia</span>
                     </div>
                 </div>
             </div>
@@ -318,24 +318,24 @@
         <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <div class="mb-12 flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
                 <div data-aos="fade-right">
-                    <p class="section-eyebrow">Layanan KALSOLAR</p>
+                    <p class="section-eyebrow">Layanan Luma Daya</p>
                     <h2 class="mt-4 max-w-2xl text-4xl font-semibold leading-tight text-stone-950 sm:text-5xl">
                         Solusi PLTS untuk rumah, bisnis, industri, dan lokasi mandiri.
                     </h2>
                 </div>
-                <a href="#contact" data-aos="fade-left" class="inline-flex w-fit items-center gap-3 rounded-full bg-[#12268C] px-5 py-3 text-sm font-bold text-white transition hover:bg-[#0f2075]">
+                <a href="#contact" data-aos="fade-left" class="inline-flex w-fit items-center gap-3 rounded-full bg-[#0F4FB8] px-5 py-3 text-sm font-bold text-white transition hover:bg-[#0D3F93]">
                     Minta estimasi
                 </a>
             </div>
 
             <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
                 @foreach (config('kiasolar.solutions') as $serviceSlug => $service)
-                    <article data-aos="fade-up" class="group overflow-hidden rounded-[2rem] bg-stone-100">
+                    <article data-aos="fade-up" class="group overflow-hidden rounded-[2rem] bg-[#F7FBF9]">
                         <div class="h-72 overflow-hidden">
                             <img src="{{ $service['hero_image'] }}" alt="{{ $service['name'] }}" class="h-full w-full object-cover transition duration-700 group-hover:scale-110">
                         </div>
                         <div class="p-7">
-                            <div class="mb-5 text-sm font-bold text-[#12268C]">{{ str_pad($loop->iteration, 2, '0', STR_PAD_LEFT) }}</div>
+                            <div class="mb-5 text-sm font-bold text-[#0F4FB8]">{{ str_pad($loop->iteration, 2, '0', STR_PAD_LEFT) }}</div>
                             <h3 class="text-2xl font-bold text-stone-950">{{ $service['name'] }}</h3>
                             <p class="mt-4 leading-7 text-stone-600">{{ $service['intro'] }}</p>
                             <a href="/layanan/{{ $serviceSlug }}" class="mt-6 inline-flex items-center text-sm font-bold text-stone-950">Pelajari layanan</a>
@@ -346,7 +346,7 @@
         </div>
     </section>
 
-    <section id="growth" class="bg-[#F3F5FF] py-20 sm:py-28">
+    <section id="growth" class="bg-[#F4FBF8] py-20 sm:py-28">
         <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <div class="grid gap-10 lg:grid-cols-[0.85fr_1.15fr]">
                 <div data-aos="fade-right">
@@ -379,7 +379,7 @@
         <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <div class="grid gap-10 lg:grid-cols-[1fr_1fr] lg:items-center">
                 <div data-aos="fade-right">
-                    <p class="section-eyebrow">Mengapa KALSOLAR</p>
+                    <p class="section-eyebrow">Mengapa Luma Daya</p>
                     <h2 class="mt-4 text-4xl font-semibold leading-tight text-stone-950 sm:text-5xl">
                         Pendampingan PLTS dari analisis kebutuhan sampai sistem berjalan.
                     </h2>
@@ -401,7 +401,7 @@
         </div>
     </section>
 
-    <section id="benefits" class="bg-stone-950 py-20 text-white sm:py-28">
+    <section id="benefits" class="bg-white py-20 text-stone-950 sm:py-28">
         <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <div class="mb-12 max-w-3xl" data-aos="fade-up">
                     <p class="section-eyebrow">Manfaat utama</p>
@@ -419,14 +419,14 @@
                     <article data-aos="fade-up" class="group relative h-80 overflow-hidden rounded-[1.5rem]">
                         <img src="{{ $benefit[1] }}" alt="{{ $benefit[0] }}" class="h-full w-full object-cover transition duration-700 group-hover:scale-110">
                         <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent"></div>
-                        <h3 class="absolute bottom-6 left-6 right-6 text-2xl font-bold">{{ $benefit[0] }}</h3>
+                        <h3 class="absolute bottom-6 left-6 right-6 text-2xl font-bold text-white">{{ $benefit[0] }}</h3>
                     </article>
                 @endforeach
             </div>
         </div>
     </section>
 
-    <section id="testimonials" class="overflow-hidden bg-[#F3F5FF] py-20 sm:py-28">
+    <section id="testimonials" class="overflow-hidden bg-[#F4FBF8] py-20 sm:py-28">
         <div class="mx-auto mb-12 max-w-7xl px-4 sm:px-6 lg:px-8" data-aos="fade-up">
             <p class="section-eyebrow">Testimoni</p>
             <h2 class="mt-4 max-w-2xl text-4xl font-semibold leading-tight text-stone-950 sm:text-5xl">
@@ -436,14 +436,14 @@
         <div class="testimonial-marquee flex gap-5">
             @foreach (range(1, 2) as $loopIndex)
                 @foreach ([
-                    ['Andika Pratama', 'Pemilik rumah', 'Tim KALSOLAR menjelaskan kapasitas yang masuk akal, bukan sekadar menawarkan panel paling besar.'],
+                    ['Andika Pratama', 'Pemilik rumah', 'Tim Luma Daya menjelaskan kapasitas yang masuk akal, bukan sekadar menawarkan panel paling besar.'],
                     ['Maya Santoso', 'Manajer fasilitas', 'Pemantauannya membantu kami melihat produksi energi harian dan mengevaluasi penghematan listrik.'],
                     ['Rizal Hakim', 'Pemilik usaha', 'Proses survei dan instalasinya rapi. Operasional toko tetap berjalan selama pemasangan.'],
                     ['Dewi Lestari', 'Pengelola villa', 'Sistem hybrid membantu menjaga beban penting tetap menyala saat listrik tidak stabil.'],
                 ] as $quote)
                     <article class="w-[320px] shrink-0 rounded-[1.5rem] bg-white p-6 shadow-sm ring-1 ring-black/5 sm:w-[420px]">
                         <div class="mb-6 flex items-center gap-3">
-                            <div class="grid h-12 w-12 place-items-center rounded-full bg-[#DCE4FF] font-bold text-stone-950">{{ substr($quote[0], 0, 1) }}</div>
+                            <div class="grid h-12 w-12 place-items-center rounded-full bg-[#DCF1E0] font-bold text-stone-950">{{ substr($quote[0], 0, 1) }}</div>
                             <div>
                                 <h3 class="font-bold text-stone-950">{{ $quote[0] }}</h3>
                                 <p class="text-sm text-stone-500">{{ $quote[1] }}</p>
@@ -474,8 +474,8 @@
                     ['Kapan bisnis perlu memakai BESS?', 'BESS relevan saat fasilitas membutuhkan cadangan daya, pengurangan beban puncak, atau ingin memaksimalkan energi dari PLTS.'],
                     ['Cara awal menghitung kebutuhan panel surya rumah', 'Mulai dari tagihan listrik, pola pemakaian siang hari, luas atap, dan perangkat yang ingin diprioritaskan.'],
                 ] as $article)
-                    <article data-aos="fade-up" class="rounded-[1.5rem] bg-stone-100 p-7">
-                        <p class="mb-5 text-sm font-bold uppercase tracking-[0.12em] text-[#12268C]">Panduan PLTS</p>
+                    <article data-aos="fade-up" class="rounded-[1.5rem] bg-[#F7FBF9] p-7">
+                        <p class="mb-5 text-sm font-bold uppercase tracking-[0.12em] text-[#0F4FB8]">Panduan PLTS</p>
                         <h3 class="text-2xl font-bold text-stone-950">{{ $article[0] }}</h3>
                         <p class="mt-4 leading-7 text-stone-600">{{ $article[1] }}</p>
                     </article>
@@ -486,30 +486,30 @@
 
     <section id="contact" class="bg-white py-20 sm:py-28">
         <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-            <div class="overflow-hidden rounded-[2rem] bg-stone-950 text-white">
+            <div class="overflow-hidden rounded-[2rem] bg-[#0D3F93] text-white">
                 <div class="grid lg:grid-cols-[0.9fr_1.1fr]">
                     <div class="p-8 sm:p-12" data-aos="fade-right">
-                        <p class="section-eyebrow">Hubungi kami</p>
+                        <p class="section-eyebrow text-[#9DD6A6]">Hubungi kami</p>
                         <h2 class="mt-4 text-4xl font-semibold leading-tight sm:text-5xl">
                             Siap menghitung kebutuhan PLTS untuk lokasi Anda?
                         </h2>
                         <p class="mt-6 leading-8 text-white/70">
-                            Ceritakan kebutuhan listrik, jenis bangunan, dan target penghematan. Tim KALSOLAR akan membantu estimasi sistem yang paling sesuai.
+                            Ceritakan kebutuhan listrik, jenis bangunan, dan target penghematan. Tim Luma Daya akan membantu estimasi sistem yang paling sesuai.
                         </p>
                         <div class="mt-10 space-y-4 text-white/80">
                             <p>(888) 456 7890</p>
-                            <p>halo@kalsolar.id</p>
+                            <p>halo@lumadaya.id</p>
                             <p>Jakarta, Indonesia</p>
                         </div>
                     </div>
-                    <form class="bg-[#EEF1FF] p-8 text-stone-950 sm:p-12" data-aos="fade-left">
+                    <form class="bg-[#F1FBF4] p-8 text-stone-950 sm:p-12" data-aos="fade-left">
                         <div class="grid gap-5 sm:grid-cols-2">
-                            <input class="rounded-full border border-[#B8C7FF] bg-white px-5 py-4 outline-none focus:border-[#12268C]" type="text" placeholder="Nama">
-                            <input class="rounded-full border border-[#B8C7FF] bg-white px-5 py-4 outline-none focus:border-[#12268C]" type="email" placeholder="Email">
+                            <input class="rounded-full border border-[#C7E5D0] bg-white px-5 py-4 outline-none focus:border-[#0F4FB8]" type="text" placeholder="Nama">
+                            <input class="rounded-full border border-[#C7E5D0] bg-white px-5 py-4 outline-none focus:border-[#0F4FB8]" type="email" placeholder="Email">
                         </div>
-                        <input class="mt-5 w-full rounded-full border border-[#B8C7FF] bg-white px-5 py-4 outline-none focus:border-[#12268C]" type="text" placeholder="Jenis kebutuhan: solar rumah, industri, hybrid, BESS">
-                        <textarea class="mt-5 h-36 w-full resize-none rounded-[1.25rem] border border-[#B8C7FF] bg-white px-5 py-4 outline-none focus:border-[#12268C]" placeholder="Ceritakan lokasi, daya listrik, dan target penghematan"></textarea>
-                        <button type="submit" class="mt-5 inline-flex items-center gap-3 rounded-full bg-[#12268C] px-6 py-4 text-sm font-bold text-white transition hover:bg-[#0f2075]">
+                        <input class="mt-5 w-full rounded-full border border-[#C7E5D0] bg-white px-5 py-4 outline-none focus:border-[#0F4FB8]" type="text" placeholder="Jenis kebutuhan: solar rumah, industri, hybrid, BESS">
+                        <textarea class="mt-5 h-36 w-full resize-none rounded-[1.25rem] border border-[#C7E5D0] bg-white px-5 py-4 outline-none focus:border-[#0F4FB8]" placeholder="Ceritakan lokasi, daya listrik, dan target penghematan"></textarea>
+                        <button type="submit" class="mt-5 inline-flex items-center gap-3 rounded-full bg-[#0F4FB8] px-6 py-4 text-sm font-bold text-white transition hover:bg-[#0D3F93]">
                             Minta konsultasi
                         </button>
                     </form>

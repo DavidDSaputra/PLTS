@@ -6,11 +6,11 @@
             [
                 '@type' => 'Service',
                 '@id' => $url . '#service',
-                'name' => $solution['name'] . ' KALSOLAR',
+                'name' => $solution['name'] . ' Luma Daya',
                 'description' => $solution['description'],
                 'provider' => [
                     '@type' => 'Organization',
-                    'name' => 'KALSOLAR',
+                    'name' => 'Luma Daya',
                     'url' => url('/'),
                 ],
                 'areaServed' => 'Indonesia',
@@ -81,7 +81,7 @@
         <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <div class="grid gap-12 lg:grid-cols-[0.9fr_1.1fr] lg:items-start">
                 <div data-aos="fade-right">
-                    <p class="section-eyebrow">Solusi KALSOLAR</p>
+                    <p class="section-eyebrow">Solusi Luma Daya</p>
                     <h2 class="mt-4 text-4xl font-semibold leading-tight text-stone-950 sm:text-5xl">
                         Untuk siapa {{ strtolower($solution['name']) }} paling cocok?
                     </h2>
@@ -90,8 +90,8 @@
 
                 <div class="grid gap-4 sm:grid-cols-2" data-aos="fade-left">
                     @foreach ($solution['benefits'] as $benefit)
-                        <div class="rounded-[1.25rem] bg-[#F3F5FF] p-6 ring-1 ring-[#DCE4FF]">
-                            <div class="mb-5 h-1.5 w-12 rounded-full bg-[#12268C]"></div>
+                        <div class="rounded-[1.25rem] bg-[#F4FBF8] p-6 ring-1 ring-[#DCEBEE]">
+                            <div class="mb-5 h-1.5 w-12 rounded-full bg-[#46B13F]"></div>
                             <h3 class="text-xl font-bold text-stone-950">{{ $benefit }}</h3>
                         </div>
                     @endforeach
@@ -104,7 +104,7 @@
         <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <div class="grid gap-12 lg:grid-cols-[0.85fr_1.15fr]">
                 <div data-aos="fade-right">
-                    <p class="section-eyebrow text-[#C8D3FF]">Tahapan kerja</p>
+                    <p class="section-eyebrow text-[#9DD6A6]">Tahapan kerja</p>
                     <h2 class="mt-4 text-4xl font-semibold leading-tight sm:text-5xl">
                         Proses yang jelas dari analisis sampai sistem aktif.
                     </h2>
@@ -116,7 +116,7 @@
                 <div class="space-y-4" data-aos="fade-left">
                     @foreach ($solution['process'] as $index => $step)
                         <div class="flex gap-5 rounded-[1.25rem] bg-stone-900 p-6 ring-1 ring-stone-800">
-                            <span class="text-sm font-black text-[#C8D3FF]">{{ str_pad($index + 1, 2, '0', STR_PAD_LEFT) }}</span>
+                            <span class="text-sm font-black text-[#9DD6A6]">{{ str_pad($index + 1, 2, '0', STR_PAD_LEFT) }}</span>
                             <h3 class="text-xl font-bold">{{ $step }}</h3>
                         </div>
                     @endforeach
@@ -125,7 +125,7 @@
         </div>
     </section>
 
-    <section class="bg-[#F3F5FF] py-20 sm:py-28">
+    <section class="bg-[#F4FBF8] py-20 sm:py-28">
         <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <div class="mb-12 max-w-3xl" data-aos="fade-up">
                 <p class="section-eyebrow">Pertanyaan umum</p>
@@ -154,18 +154,18 @@
 
     <section class="bg-white py-20 sm:py-28">
         <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-            <div class="overflow-hidden rounded-[2rem] bg-stone-950 p-8 text-white sm:p-12 lg:flex lg:items-center lg:justify-between">
+            <div class="overflow-hidden rounded-[2rem] bg-[#0D3F93] p-8 text-white sm:p-12 lg:flex lg:items-center lg:justify-between">
                 <div data-aos="fade-right">
-                    <p class="section-eyebrow text-[#C8D3FF]">Konsultasi gratis</p>
+                    <p class="section-eyebrow text-[#9DD6A6]">Konsultasi gratis</p>
                     <h2 class="mt-4 max-w-3xl text-4xl font-semibold leading-tight sm:text-5xl">
                         Ingin menghitung kebutuhan {{ strtolower($solution['name']) }}?
                     </h2>
                     <p class="mt-5 max-w-2xl leading-8 text-white/70">
-                        Kirim tagihan listrik atau kebutuhan beban, lalu tim KALSOLAR bantu estimasi kapasitas, skenario sistem, dan proyeksi penghematan.
+                        Kirim tagihan listrik atau kebutuhan beban, lalu tim Luma Daya bantu estimasi kapasitas, skenario sistem, dan proyeksi penghematan.
                     </p>
                 </div>
-                <a href="/#contact" data-aos="fade-left" class="mt-8 inline-flex items-center rounded-full bg-[#12268C] px-7 py-4 text-sm font-bold text-white transition hover:bg-[#0f2075] lg:mt-0">
-                    Hubungi KALSOLAR
+                <a href="/#contact" data-aos="fade-left" class="mt-8 inline-flex items-center rounded-full bg-[#0F4FB8] px-7 py-4 text-sm font-bold text-white transition hover:bg-[#0D3F93] lg:mt-0">
+                    Hubungi Luma Daya
                 </a>
             </div>
         </div>
