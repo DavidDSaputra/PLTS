@@ -2,7 +2,7 @@
 
 @php
     $brandName = config('app.name', 'Luma Daya');
-    $logoUrl = asset('assets/images/logo_landscape.svg');
+    $logoUrl = \App\Support\SiteSettings::mediaUrl(\App\Support\SiteSettings::get('navbar_logo'), asset('assets/images/logo1.png'));
     $defaultDescription = 'Luma Daya menyediakan solusi PLTS, solar rumah, solar industri, PLTS hybrid, off-grid, on-grid, dan BESS di Indonesia.';
 @endphp
 

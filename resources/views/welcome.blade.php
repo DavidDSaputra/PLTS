@@ -1,4 +1,74 @@
 @php
+    use App\Models\Article;
+    use App\Models\HeroSlide;
+    use App\Support\SiteSettings;
+    use Illuminate\Support\Facades\Schema;
+
+    $fallbackSlides = collect([
+        [
+            'image' => 'https://images.unsplash.com/photo-1509391366360-2e959784a276?auto=format&fit=crop&w=1900&q=88',
+            'title' => 'Energi surya untuk rumah dan bisnis',
+            'subtitle' => 'Luma Daya membantu perencanaan solar rumah, solar industri, PLTS hybrid, off-grid, on-grid, dan BESS dengan desain yang jelas sejak awal.',
+            'alt' => 'Deretan panel surya di bawah langit cerah',
+        ],
+        [
+            'image' => 'https://images.unsplash.com/photo-1559302504-64aae6ca6b6d?auto=format&fit=crop&w=1900&q=88',
+            'title' => 'PLTS rapi, aman, dan terukur',
+            'subtitle' => 'Luma Daya membantu perencanaan solar rumah, solar industri, PLTS hybrid, off-grid, on-grid, dan BESS dengan desain yang jelas sejak awal.',
+            'alt' => 'Instalasi panel surya pada bangunan modern',
+        ],
+        [
+            'image' => 'https://images.unsplash.com/photo-1621905252507-b35492cc74b4?auto=format&fit=crop&w=1900&q=88',
+            'title' => 'BESS dan hybrid untuk daya cadangan',
+            'subtitle' => 'Luma Daya membantu perencanaan solar rumah, solar industri, PLTS hybrid, off-grid, on-grid, dan BESS dengan desain yang jelas sejak awal.',
+            'alt' => 'Sistem kelistrikan dan penyimpanan energi',
+        ],
+    ]);
+
+    $adminSlides = Schema::hasTable('hero_slides')
+        ? HeroSlide::query()
+            ->active()
+            ->ordered()
+            ->get()
+            ->map(fn (HeroSlide $slide) => [
+                'image' => $slide->imageUrl(),
+                'title' => $slide->title,
+                'subtitle' => $slide->subtitle ?: $fallbackSlides->first()['subtitle'],
+                'alt' => $slide->alt_text ?: $slide->title,
+            ])
+            ->filter(fn ($slide) => filled($slide['image']) && filled($slide['title']))
+            ->values()
+        : collect();
+
+    $slides = $adminSlides->isNotEmpty() ? $adminSlides : $fallbackSlides;
+
+    $fallbackArticles = collect([
+        ['title' => 'Apa beda PLTS on-grid, off-grid, dan hybrid?', 'excerpt' => 'On-grid cocok untuk penghematan harian, off-grid untuk lokasi tanpa PLN, sedangkan hybrid menambahkan baterai atau sumber cadangan.', 'category' => 'Panduan PLTS', 'image' => null, 'slug' => null],
+        ['title' => 'Kapan bisnis perlu memakai BESS?', 'excerpt' => 'BESS relevan saat fasilitas membutuhkan cadangan daya, pengurangan beban puncak, atau ingin memaksimalkan energi dari PLTS.', 'category' => 'Panduan PLTS', 'image' => null, 'slug' => null],
+        ['title' => 'Cara awal menghitung kebutuhan panel surya rumah', 'excerpt' => 'Mulai dari tagihan listrik, pola pemakaian siang hari, luas atap, dan perangkat yang ingin diprioritaskan.', 'category' => 'Panduan PLTS', 'image' => null, 'slug' => null],
+    ]);
+
+    $adminArticles = Schema::hasTable('articles')
+        ? Article::query()
+            ->published()
+            ->latest('published_at')
+            ->limit(3)
+            ->get()
+            ->map(fn (Article $article) => [
+                'title' => $article->title,
+                'excerpt' => $article->excerpt,
+                'category' => $article->category ?: 'Panduan PLTS',
+                'image' => $article->imageUrl(),
+                'slug' => $article->slug,
+            ])
+        : collect();
+
+    $articles = $adminArticles->isNotEmpty() ? $adminArticles : $fallbackArticles;
+
+    $contactPhone = SiteSettings::get('contact_phone', '(888) 456 7890');
+    $contactEmail = SiteSettings::get('contact_email', 'halo@lumadaya.id');
+    $contactAddress = SiteSettings::get('contact_address', 'Jakarta, Indonesia');
+
     $homeSchema = [
         '@context' => 'https://schema.org',
         '@graph' => [
@@ -28,28 +98,8 @@
 <x-layout.app :schema="$homeSchema">
     <section id="hero" class="relative min-h-screen overflow-hidden bg-stone-950 text-white">
         <div class="hero-slider absolute inset-0">
-            @php
-                $slides = [
-                    [
-                        'image' => 'https://images.unsplash.com/photo-1509391366360-2e959784a276?auto=format&fit=crop&w=1900&q=88',
-                        'title' => 'Energi surya untuk rumah dan bisnis',
-                        'alt' => 'Deretan panel surya di bawah langit cerah',
-                    ],
-                    [
-                        'image' => 'https://images.unsplash.com/photo-1559302504-64aae6ca6b6d?auto=format&fit=crop&w=1900&q=88',
-                        'title' => 'PLTS rapi, aman, dan terukur',
-                        'alt' => 'Instalasi panel surya pada bangunan modern',
-                    ],
-                    [
-                        'image' => 'https://images.unsplash.com/photo-1621905252507-b35492cc74b4?auto=format&fit=crop&w=1900&q=88',
-                        'title' => 'BESS dan hybrid untuk daya cadangan',
-                        'alt' => 'Sistem kelistrikan dan penyimpanan energi',
-                    ],
-                ];
-            @endphp
-
             @foreach ($slides as $index => $slide)
-                <div class="hero-slide absolute inset-0 {{ $index === 0 ? 'is-active' : '' }}" data-title="{{ $slide['title'] }}">
+                <div class="hero-slide absolute inset-0 {{ $index === 0 ? 'is-active' : '' }}" data-title="{{ $slide['title'] }}" data-subtitle="{{ $slide['subtitle'] }}">
                     <img
                         src="{{ $slide['image'] }}"
                         alt="{{ $slide['alt'] }}"
@@ -67,10 +117,10 @@
             <div class="w-full">
                 <div class="mx-auto max-w-3xl pt-12 text-center">
                     <h1 class="hero-title mx-auto max-w-[820px] text-4xl font-semibold leading-[1.02] tracking-normal text-white sm:text-5xl lg:text-[64px]">
-                        Energi surya untuk rumah dan bisnis
+                        {{ $slides->first()['title'] }}
                     </h1>
-                    <p class="mx-auto mt-6 max-w-2xl text-base leading-7 text-white/76 sm:text-lg">
-                        Luma Daya membantu perencanaan solar rumah, solar industri, PLTS hybrid, off-grid, on-grid, dan BESS dengan desain yang jelas sejak awal.
+                    <p class="hero-subtitle mx-auto mt-6 max-w-2xl text-base leading-7 text-white/76 sm:text-lg">
+                        {{ $slides->first()['subtitle'] }}
                     </p>
                     <div data-aos="fade-up" data-aos-delay="160" class="mt-9">
                         <a href="#contact" class="group inline-flex items-center gap-6 rounded-full bg-[#0F4FB8] px-7 py-4 text-base font-bold text-white transition hover:bg-white hover:text-[#0F4FB8]">
@@ -81,24 +131,15 @@
                         </a>
                     </div>
 
-                    <div data-aos="fade-up" data-aos-delay="280" class="mt-24 flex flex-wrap items-center justify-center gap-5">
-                        <div class="flex -space-x-4">
-                            <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=120&q=80" alt="Pelanggan Luma Daya" class="h-14 w-14 rounded-full border-2 border-white object-cover">
-                            <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=120&q=80" alt="Pelanggan Luma Daya" class="h-14 w-14 rounded-full border-2 border-white object-cover">
-                            <img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&w=120&q=80" alt="Pelanggan Luma Daya" class="h-14 w-14 rounded-full border-2 border-white object-cover">
-                        </div>
-                        <p class="text-base font-semibold text-white">
-                            <svg class="mr-2 inline h-5 w-5 text-[#46B13F]" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
-                                <path d="M10 1.7L12.4 7L18 7.6L13.8 11.5L15 17.1L10 14.2L5 17.1L6.2 11.5L2 7.6L7.6 7L10 1.7Z" />
-                            </svg>
-                            5.0 dari 500+ ulasan pelanggan
-                        </p>
-                    </div>
+                   
                 </div>
             </div>
         </div>
 
-        <div class="absolute inset-x-0 bottom-7 z-20 flex justify-center px-4">
+        <br>
+        <br>
+        
+        <div class="absolute inset-x-0 bottom-14 z-20 flex justify-center px-4 sm:bottom-16 lg:bottom-20">
             <div class="hero- flex items-center gap-2 rounded-full bg-white p-2 shadow-2xl">
                 <button type="button" class="hero-nav-button" data-hero-prev aria-label="Slide sebelumnya">
                     <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" aria-hidden="true">
@@ -469,15 +510,19 @@
             </div>
 
             <div class="grid gap-6 md:grid-cols-3">
-                @foreach ([
-                    ['Apa beda PLTS on-grid, off-grid, dan hybrid?', 'On-grid cocok untuk penghematan harian, off-grid untuk lokasi tanpa PLN, sedangkan hybrid menambahkan baterai atau sumber cadangan.'],
-                    ['Kapan bisnis perlu memakai BESS?', 'BESS relevan saat fasilitas membutuhkan cadangan daya, pengurangan beban puncak, atau ingin memaksimalkan energi dari PLTS.'],
-                    ['Cara awal menghitung kebutuhan panel surya rumah', 'Mulai dari tagihan listrik, pola pemakaian siang hari, luas atap, dan perangkat yang ingin diprioritaskan.'],
-                ] as $article)
-                    <article data-aos="fade-up" class="rounded-[1.5rem] bg-[#F7FBF9] p-7">
-                        <p class="mb-5 text-sm font-bold uppercase tracking-[0.12em] text-[#0F4FB8]">Panduan PLTS</p>
-                        <h3 class="text-2xl font-bold text-stone-950">{{ $article[0] }}</h3>
-                        <p class="mt-4 leading-7 text-stone-600">{{ $article[1] }}</p>
+                @foreach ($articles as $article)
+                    <article data-aos="fade-up" class="overflow-hidden rounded-[1.5rem] bg-[#F7FBF9]">
+                        @if ($article['image'])
+                            <img src="{{ $article['image'] }}" alt="{{ $article['title'] }}" class="h-48 w-full object-cover">
+                        @endif
+                        <div class="p-7">
+                        <p class="mb-5 text-sm font-bold uppercase tracking-[0.12em] text-[#0F4FB8]">{{ $article['category'] }}</p>
+                        <h3 class="text-2xl font-bold text-stone-950">{{ $article['title'] }}</h3>
+                        <p class="mt-4 leading-7 text-stone-600">{{ $article['excerpt'] }}</p>
+                        @if ($article['slug'])
+                            <a href="{{ route('articles.show', $article['slug']) }}" class="mt-6 inline-flex text-sm font-bold text-[#0F4FB8]">Baca artikel</a>
+                        @endif
+                        </div>
                     </article>
                 @endforeach
             </div>
@@ -497,9 +542,9 @@
                             Ceritakan kebutuhan listrik, jenis bangunan, dan target penghematan. Tim Luma Daya akan membantu estimasi sistem yang paling sesuai.
                         </p>
                         <div class="mt-10 space-y-4 text-white/80">
-                            <p>(888) 456 7890</p>
-                            <p>halo@lumadaya.id</p>
-                            <p>Jakarta, Indonesia</p>
+                            <p>{{ $contactPhone }}</p>
+                            <p>{{ $contactEmail }}</p>
+                            <p>{{ $contactAddress }}</p>
                         </div>
                     </div>
                     <form class="bg-[#F1FBF4] p-8 text-stone-950 sm:p-12" data-aos="fade-left">

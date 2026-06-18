@@ -88,10 +88,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const heroSlides = document.querySelectorAll('.hero-slide');
     const heroTitle = document.querySelector('.hero-title');
+    const heroSubtitle = document.querySelector('.hero-subtitle');
     const heroDots = document.querySelectorAll('[data-hero-slide-button]');
     const heroPrev = document.querySelector('[data-hero-prev]');
     const heroNext = document.querySelector('[data-hero-next]');
     const heroTitles = Array.from(heroSlides).map((slide) => slide.dataset.title);
+    const heroSubtitles = Array.from(heroSlides).map((slide) => slide.dataset.subtitle);
 
     if (heroSlides.length && heroTitle) {
         let activeSlide = 0;
@@ -119,6 +121,9 @@ document.addEventListener('DOMContentLoaded', () => {
                 ease: 'power2.in',
                 onComplete: () => {
                     heroTitle.textContent = heroTitles[activeSlide];
+                    if (heroSubtitle) {
+                        heroSubtitle.textContent = heroSubtitles[activeSlide];
+                    }
                     gsap.fromTo(heroTitle, { y: 24, opacity: 0 }, { y: 0, opacity: 1, duration: 0.55, ease: 'power3.out' });
                 },
             });

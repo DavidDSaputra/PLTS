@@ -1,7 +1,7 @@
 @php
     $solutions = config('kiasolar.solutions');
     $brandName = config('app.name', 'Luma Daya');
-    $logoLandscape = asset('assets/images/logo1.png');
+    $logoLandscape = \App\Support\SiteSettings::mediaUrl(\App\Support\SiteSettings::get('navbar_logo'), asset('assets/images/logo1.png'));
     $logoPortrait = asset('assets/images/logo2.png');
 
     $mainLinks = [
@@ -27,16 +27,21 @@
         >
             {{-- Logo --}}
             <a href="/" class="flex shrink-0 items-center">
-                <img
-                    src="{{ $logoPortrait }}"
-                    alt="{{ $brandName }}"
-                    class="block h-14 w-auto sm:hidden"
-                >
-                <img
-                    src="{{ $logoLandscape }}"
-                    alt="{{ $brandName }}"
-                    class="hidden h-10 w-auto sm:block lg:h-11"
-                >
+                <span class="block h-14 w-14 overflow-hidden rounded-xl sm:hidden">
+                    <img
+                        src="{{ $logoPortrait }}"
+                        alt="{{ $brandName }}"
+                        class="h-full w-full object-cover object-center"
+                    >
+                </span>
+                <span class="relative hidden h-12 w-[18.5rem] overflow-hidden rounded-2xl sm:block lg:w-[19.5rem]">
+                    <img
+                        src="{{ $logoLandscape }}"
+                        alt="{{ $brandName }}"
+                        class="absolute left-0 top-1/2 h-[5.35rem] w-full max-w-none -translate-y-1/2 object-cover"
+                        style="object-position: 42% 44%;"
+                    >
+                </span>
             </a>
 
             {{-- Desktop nav --}}
@@ -68,7 +73,7 @@
                             :aria-expanded="servicesOpen.toString()"
                             class="inline-flex items-center gap-1.5 rounded-full px-4 py-2 text-sm font-medium transition
                                 {{ request()->is('layanan*')
-                                    ? 'bg-white text-stone-950 shadow-sm'
+                                    ? 'x    xt-stone-950 shadow-sm'
                                     : 'text-stone-500 hover:bg-white/80 hover:text-stone-950' }}"
                         >
                             Layanan

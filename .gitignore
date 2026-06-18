@@ -1,6 +1,7 @@
 *.log
 .DS_Store
 .env
+.env.hosting
 .env.backup
 .env.production
 .phpactor.json
@@ -18,6 +19,7 @@
 /public/fonts-manifest.dev.json
 /public/hot
 /public/storage
+/public/assets/images/ChatGPT Image*
 /storage/*.key
 /storage/pail
 /vendor
