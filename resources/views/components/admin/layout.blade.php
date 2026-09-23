@@ -20,6 +20,7 @@
                     ['href' => route('admin.dashboard'), 'label' => 'Dashboard', 'active' => request()->routeIs('admin.dashboard')],
                     ['href' => route('admin.articles.index'), 'label' => 'Artikel', 'active' => request()->routeIs('admin.articles.*')],
                     ['href' => route('admin.hero-slides.index'), 'label' => 'Hero slider', 'active' => request()->routeIs('admin.hero-slides.*')],
+                    ['href' => route('admin.homepage-images.edit'), 'label' => 'Gambar homepage', 'active' => request()->routeIs('admin.homepage-images.*')],
                     ['href' => route('admin.settings.edit'), 'label' => 'Kontak & setting', 'active' => request()->routeIs('admin.settings.*')],
                 ] as $item)
                     <a

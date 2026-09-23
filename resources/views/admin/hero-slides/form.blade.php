@@ -39,6 +39,12 @@
         <div class="lg:col-span-2">
             <p class="mb-2 text-sm font-semibold">Preview gambar saat ini</p>
             <img src="{{ $slide->imageUrl() }}" alt="{{ $slide->alt_text ?: $slide->title }}" class="h-48 w-full max-w-xl rounded-xl object-cover">
+            @if ($slide->exists)
+                <label class="mt-3 flex items-center gap-3 text-sm font-semibold text-red-600">
+                    <input name="remove_image" type="checkbox" value="1" class="rounded border-stone-300 text-red-600">
+                    Hapus gambar saat ini
+                </label>
+            @endif
         </div>
     @endif
 

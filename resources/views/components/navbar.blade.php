@@ -2,7 +2,7 @@
     $solutions = config('kiasolar.solutions');
     $brandName = config('app.name', 'Luma Daya');
     $logoLandscape = \App\Support\SiteSettings::mediaUrl(\App\Support\SiteSettings::get('navbar_logo'), asset('assets/images/logo1.png'));
-    $logoPortrait = asset('assets/images/logo2.png');
+    $logoPortrait = \App\Support\SiteSettings::mediaUrl(\App\Support\SiteSettings::get('navbar_portrait_logo'), asset('assets/images/logo2.png'));
 
     $mainLinks = [
         ['href' => '/', 'label' => 'Beranda', 'active' => request()->path() === '/'],

@@ -69,6 +69,14 @@
     $contactEmail = SiteSettings::get('contact_email', 'halo@lumadaya.id');
     $contactAddress = SiteSettings::get('contact_address', 'Jakarta, Indonesia');
 
+    $homepageImages = collect(config('homepage_media.images'))->mapWithKeys(function (array $definition, string $key): array {
+        $defaultUrl = str_starts_with($definition['default'], 'http')
+            ? $definition['default']
+            : asset($definition['default']);
+
+        return [$key => SiteSettings::mediaUrl(SiteSettings::get($key), $defaultUrl)];
+    });
+
     $homeSchema = [
         '@context' => 'https://schema.org',
         '@graph' => [
@@ -175,8 +183,8 @@
                 </div>
 
                 <div class="relative grid grid-cols-2 gap-4 sm:gap-5" data-aos="fade-left">
-                    <img src="https://images.unsplash.com/photo-1497440001374-f26997328c1b?auto=format&fit=crop&w=700&q=85" alt="Aerial wind turbine landscape" class="parallax-image h-64 w-full rounded-[1.5rem] object-cover sm:h-80">
-                    <img src="https://images.unsplash.com/photo-1466611653911-95081537e5b7?auto=format&fit=crop&w=700&q=85" alt="Solar panels in a field" class="parallax-image mt-10 h-64 w-full rounded-[1.5rem] object-cover sm:h-80">
+                    <img src="{{ $homepageImages['home_about_image_left'] }}" alt="Aerial wind turbine landscape" class="parallax-image h-64 w-full rounded-[1.5rem] object-cover sm:h-80">
+                    <img src="{{ $homepageImages['home_about_image_right'] }}" alt="Solar panels in a field" class="parallax-image mt-10 h-64 w-full rounded-[1.5rem] object-cover sm:h-80">
                     <div class="absolute -bottom-6 left-6 grid grid-cols-2 overflow-hidden rounded-[1.25rem] bg-stone-950 text-white shadow-2xl">
                         <div class="border-r border-white/10 p-5">
                             <div class="text-4xl font-bold"><span class="counter" data-target="18">0</span>+</div>
@@ -319,7 +327,7 @@
         <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <div class="grid gap-12 lg:grid-cols-[1.1fr_0.9fr] lg:items-center">
                 <div data-aos="fade-right" class="relative min-h-[500px]">
-                    <img src="https://images.unsplash.com/photo-1605980776566-0486c3ac7617?auto=format&fit=crop&w=1000&q=85" alt="Solar technician working" class="h-[500px] w-full rounded-[2rem] object-cover">
+                    <img src="{{ $homepageImages['home_impact_image'] }}" alt="Solar technician working" class="h-[500px] w-full rounded-[2rem] object-cover">
                     <div class="absolute inset-x-8 bottom-8 grid grid-cols-3 overflow-hidden rounded-[1.5rem] bg-white/95 text-center text-stone-950 shadow-xl ring-1 ring-black/5 backdrop-blur">
                         @foreach ([['30%', 'Rata-rata hemat'], ['98%', 'Rasio performa'], ['2.500+', 'Instalasi']] as $stat)
                             <div class="border-r border-stone-200 p-4 last:border-r-0">
@@ -339,13 +347,8 @@
                     </p>
                     <div class="mt-8 flex flex-wrap items-center gap-4">
                         <div class="flex -space-x-3">
-                            @foreach ([
-                                'https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?auto=format&fit=crop&w=120&q=80',
-                                'https://images.unsplash.com/photo-1544723795-3fb6469f5b39?auto=format&fit=crop&w=120&q=80',
-                                'https://images.unsplash.com/photo-1527980965255-d3b416303d12?auto=format&fit=crop&w=120&q=80',
-                                'https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&w=120&q=80',
-                            ] as $avatar)
-                                <img src="{{ $avatar }}" alt="Partner portrait" class="h-12 w-12 rounded-full border-2 border-white object-cover">
+                            @foreach (range(1, 4) as $avatarIndex)
+                                <img src="{{ $homepageImages['home_partner_avatar_' . $avatarIndex] }}" alt="Partner portrait" class="h-12 w-12 rounded-full border-2 border-white object-cover">
                             @endforeach
                         </div>
                         <span class="text-sm font-semibold text-stone-600">Mitra teknis dan pemasok untuk mendukung implementasi PLTS di Indonesia</span>
@@ -373,7 +376,7 @@
                 @foreach (config('kiasolar.solutions') as $serviceSlug => $service)
                     <article data-aos="fade-up" class="group overflow-hidden rounded-[2rem] bg-[#F7FBF9]">
                         <div class="h-72 overflow-hidden">
-                            <img src="{{ $service['hero_image'] }}" alt="{{ $service['name'] }}" class="h-full w-full object-cover transition duration-700 group-hover:scale-110">
+                            <img src="{{ $homepageImages['home_service_' . str_replace('-', '_', $serviceSlug)] ?? $service['hero_image'] }}" alt="{{ $service['name'] }}" class="h-full w-full object-cover transition duration-700 group-hover:scale-110">
                         </div>
                         <div class="p-7">
                             <div class="mb-5 text-sm font-bold text-[#0F4FB8]">{{ str_pad($loop->iteration, 2, '0', STR_PAD_LEFT) }}</div>
@@ -431,7 +434,7 @@
                     </div>
                 </div>
                 <div data-aos="fade-left" class="relative">
-                    <img src="https://images.unsplash.com/photo-1508514177221-188b1cf16e9d?auto=format&fit=crop&w=1000&q=85" alt="Solar panels in green field" class="h-[520px] w-full rounded-[2rem] object-cover">
+                    <img src="{{ $homepageImages['home_why_image'] }}" alt="Solar panels in green field" class="h-[520px] w-full rounded-[2rem] object-cover">
                     <div class="absolute bottom-6 left-6 right-6 rounded-[1.5rem] bg-white p-6 shadow-xl">
                         <p class="leading-7 text-stone-700">
                             Kami menggabungkan survei lapangan, simulasi produksi energi, dan pemilihan komponen agar sistem PLTS sesuai kebutuhan nyata.
@@ -452,10 +455,10 @@
             </div>
             <div class="grid gap-5 md:grid-cols-2 lg:grid-cols-4">
                 @foreach ([
-                    ['Hemat tagihan listrik', 'https://images.unsplash.com/photo-1509391366360-2e959784a276?auto=format&fit=crop&w=600&q=85'],
-                    ['Perawatan rendah', 'https://images.unsplash.com/photo-1548611716-3000815a5803?auto=format&fit=crop&w=600&q=85'],
-                    ['Pemantauan mudah', 'https://images.unsplash.com/photo-1554224155-6726b3ff858f?auto=format&fit=crop&w=600&q=85'],
-                    ['Ramah lingkungan', 'https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?auto=format&fit=crop&w=600&q=85'],
+                    ['Hemat tagihan listrik', $homepageImages['home_benefit_savings']],
+                    ['Perawatan rendah', $homepageImages['home_benefit_maintenance']],
+                    ['Pemantauan mudah', $homepageImages['home_benefit_monitoring']],
+                    ['Ramah lingkungan', $homepageImages['home_benefit_environment']],
                 ] as $benefit)
                     <article data-aos="fade-up" class="group relative h-80 overflow-hidden rounded-[1.5rem]">
                         <img src="{{ $benefit[1] }}" alt="{{ $benefit[0] }}" class="h-full w-full object-cover transition duration-700 group-hover:scale-110">

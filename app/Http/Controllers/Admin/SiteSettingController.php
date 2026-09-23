@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Support\SiteSettings;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\View\View;
 
 class SiteSettingController extends Controller
@@ -32,8 +33,16 @@ class SiteSettingController extends Controller
             'footer_logo' => ['nullable', 'image', 'max:4096'],
         ]);
 
+        $currentSettings = SiteSettings::all();
+
         foreach (['navbar_logo', 'footer_logo'] as $field) {
             if ($request->hasFile($field)) {
+                $currentValue = $currentSettings[$field] ?? null;
+
+                if (filled($currentValue) && ! str_starts_with($currentValue, 'http')) {
+                    Storage::disk('public')->delete($currentValue);
+                }
+
                 $data[$field] = $request->file($field)->store('settings', 'public');
             } else {
                 unset($data[$field]);

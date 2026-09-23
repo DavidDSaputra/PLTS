@@ -28,6 +28,10 @@
         <input name="image" type="file" accept="image/*" class="rounded-xl border border-stone-300 px-4 py-3 text-sm outline-none file:mr-4 file:rounded-lg file:border-0 file:bg-[#EEF8FF] file:px-4 file:py-2 file:font-bold file:text-[#0F4FB8]">
         @if ($article->imageUrl())
             <img src="{{ $article->imageUrl() }}" alt="{{ $article->title }}" class="mt-2 h-32 w-56 rounded-xl object-cover">
+            <label class="mt-2 flex items-center gap-3 text-sm font-semibold text-red-600">
+                <input name="remove_image" type="checkbox" value="1" class="rounded border-stone-300 text-red-600">
+                Hapus gambar saat ini
+            </label>
         @endif
         @error('image') <span class="text-sm font-semibold text-red-600">{{ $message }}</span> @enderror
     </label>

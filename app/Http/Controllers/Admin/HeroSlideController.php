@@ -32,6 +32,7 @@ class HeroSlideController extends Controller
 
         if ($request->hasFile('image')) {
             $data['image_path'] = $request->file('image')->store('hero-slides', 'public');
+            $data['image_url'] = null;
         }
 
         HeroSlide::query()->create($data);
@@ -49,12 +50,23 @@ class HeroSlideController extends Controller
         $data = $this->validatedData($request);
         $data['is_active'] = $request->boolean('is_active');
 
-        if ($request->hasFile('image')) {
+        if ($request->boolean('remove_image')) {
+            if ($heroSlide->image_path) {
+                Storage::disk('public')->delete($heroSlide->image_path);
+            }
+
+            $data['image_path'] = null;
+            $data['image_url'] = null;
+        } elseif ($request->hasFile('image')) {
             if ($heroSlide->image_path) {
                 Storage::disk('public')->delete($heroSlide->image_path);
             }
 
             $data['image_path'] = $request->file('image')->store('hero-slides', 'public');
+            $data['image_url'] = null;
+        } elseif (filled($data['image_url']) && $heroSlide->image_path) {
+            Storage::disk('public')->delete($heroSlide->image_path);
+            $data['image_path'] = null;
         }
 
         $heroSlide->update($data);
@@ -82,6 +94,7 @@ class HeroSlideController extends Controller
             'alt_text' => ['nullable', 'string', 'max:255'],
             'sort_order' => ['required', 'integer', 'min:0'],
             'image' => ['nullable', 'image', 'max:6144'],
+            'remove_image' => ['nullable', 'boolean'],
         ]);
     }
 }

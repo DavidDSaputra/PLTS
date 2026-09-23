@@ -61,7 +61,7 @@ Cara paling aman:
 - Buka `/admin/login`.
 - Login dengan akun admin dari `.env`.
 - Ubah password admin setelah berhasil login jika masih memakai password sementara.
-- Cek upload gambar di menu `Kontak & setting`, `Hero slider`, dan `Artikel`.
+- Cek upload gambar di menu `Gambar homepage`, `Hero slider`, dan `Artikel`.
 
 ## Catatan Keamanan
 

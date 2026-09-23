@@ -13,7 +13,7 @@
         @endforeach
     </div>
 
-    <div class="mt-8 grid gap-5 lg:grid-cols-3">
+    <div class="mt-8 grid gap-5 md:grid-cols-2">
         <a href="{{ route('admin.articles.create') }}" class="rounded-2xl bg-white p-6 shadow-sm ring-1 ring-black/5 transition hover:-translate-y-0.5 hover:shadow-lg">
             <h2 class="text-xl font-bold">Tambah artikel</h2>
             <p class="mt-2 text-sm leading-6 text-stone-500">Buat artikel baru untuk bagian Blog di homepage.</p>
@@ -21,6 +21,10 @@
         <a href="{{ route('admin.hero-slides.create') }}" class="rounded-2xl bg-white p-6 shadow-sm ring-1 ring-black/5 transition hover:-translate-y-0.5 hover:shadow-lg">
             <h2 class="text-xl font-bold">Tambah hero slide</h2>
             <p class="mt-2 text-sm leading-6 text-stone-500">Ubah gambar dan headline besar di halaman depan.</p>
+        </a>
+        <a href="{{ route('admin.homepage-images.edit') }}" class="rounded-2xl bg-white p-6 shadow-sm ring-1 ring-black/5 transition hover:-translate-y-0.5 hover:shadow-lg">
+            <h2 class="text-xl font-bold">Kelola gambar homepage</h2>
+            <p class="mt-2 text-sm leading-6 text-stone-500">Ganti logo dan seluruh gambar statis yang tampil di homepage.</p>
         </a>
         <a href="{{ route('admin.settings.edit') }}" class="rounded-2xl bg-white p-6 shadow-sm ring-1 ring-black/5 transition hover:-translate-y-0.5 hover:shadow-lg">
             <h2 class="text-xl font-bold">Edit kontak</h2>

@@ -55,7 +55,13 @@ class ArticleController extends Controller
         $data['is_published'] = $request->boolean('is_published');
         $data['published_at'] = $data['published_at'] ?: ($data['is_published'] ? now() : null);
 
-        if ($request->hasFile('image')) {
+        if ($request->boolean('remove_image')) {
+            if ($article->image_path) {
+                Storage::disk('public')->delete($article->image_path);
+            }
+
+            $data['image_path'] = null;
+        } elseif ($request->hasFile('image')) {
             if ($article->image_path) {
                 Storage::disk('public')->delete($article->image_path);
             }
@@ -89,6 +95,7 @@ class ArticleController extends Controller
             'body' => ['nullable', 'string'],
             'published_at' => ['nullable', 'date'],
             'image' => ['nullable', 'image', 'max:4096'],
+            'remove_image' => ['nullable', 'boolean'],
         ]);
     }
 

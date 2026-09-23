@@ -4,6 +4,7 @@ use App\Http\Controllers\Admin\ArticleController;
 use App\Http\Controllers\Admin\AuthController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\HeroSlideController;
+use App\Http\Controllers\Admin\HomepageImageController;
 use App\Http\Controllers\Admin\SiteSettingController;
 use App\Http\Controllers\PageController;
 use Illuminate\Support\Facades\Route;
@@ -19,6 +20,8 @@ Route::middleware(['auth', 'admin'])->prefix('admin')->name('admin.')->group(fun
     Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
     Route::resource('articles', ArticleController::class)->except('show');
     Route::resource('hero-slides', HeroSlideController::class)->except('show');
+    Route::get('homepage-images', [HomepageImageController::class, 'edit'])->name('homepage-images.edit');
+    Route::put('homepage-images', [HomepageImageController::class, 'update'])->name('homepage-images.update');
     Route::get('settings', [SiteSettingController::class, 'edit'])->name('settings.edit');
     Route::put('settings', [SiteSettingController::class, 'update'])->name('settings.update');
 });
